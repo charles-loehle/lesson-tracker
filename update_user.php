@@ -1,6 +1,7 @@
 <?php 
 $pdo = require_once 'database.php';
 
+// get user id 
 $id = $_GET['id'] ?? null;
 
 if(!$id) {

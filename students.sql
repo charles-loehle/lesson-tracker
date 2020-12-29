@@ -116,6 +116,7 @@ DELETE FROM users WHERE id = :id;
 
 -- Create student 
 INSERT INTO students (student_name, user_id, instrument, parent_name, parent_email, phone) VALUES ('Kate Borsci', :user_id, 'violin', 'Mrs. Borsci', 'Borsci@gmail.com', '123-123-1234');
+INSERT INTO students (student_name, user_id, instrument, parent_name, parent_email, phone) VALUES (:student_name, :user_id, :instrument, :parent_name, :parent_email, :phone);
 
 -- Get all students
 SELECT student_name, user_id, instrument, parent_name, email, phone FROM students ORDER BY name ASC;

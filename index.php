@@ -6,6 +6,8 @@ $stmt = $pdo->prepare('SELECT * FROM users ORDER BY username ASC');
 $stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+// var_dump(gettype($users)); exit;
+
 session_start();
 
 $success = '';
@@ -25,6 +27,7 @@ if (isset($_SESSION['success'])) {
       <p>
         <a href="create_user.php" class="btn btn-success btn-sm">Add User</a>
       </p>
+      
       <?php if($success): ?>
         <div class="alert alert-success">
           <div><?= $success ?></div>
@@ -56,8 +59,9 @@ if (isset($_SESSION['success'])) {
                 <a href="update_user.php?id=<?= $user['id'] ?>" class="btn btn-sm btn-outline-primary">Edit</a>
                 <form class="td-form" action="delete_user.php" method="post">
                   <input type="hidden" name="id" value="<?= $user['id'] ?>" />
-                  <button class="btn btn-sm btn-outline-danger">Delete</button>
+                  <button class="btn btn-sm btn-outline-danger">Delete User</button>
                 </form>
+                <a href="user_students.php?id=<?= $user['id'] ?>" class="btn btn-sm btn-outline-primary">Students</a>
               </td>
             </tr>
           <?php endforeach; ?>
