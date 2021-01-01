@@ -62,6 +62,7 @@ if (isset($_SESSION['success'])) {
                   <button class="btn btn-sm btn-outline-danger">Delete User</button>
                 </form>
                 <a href="user_students.php?id=<?= $user['id'] ?>" class="btn btn-sm btn-outline-primary">Students</a>
+                <a href="user_lessons.php?id=<?= $user['id'] ?>" class="btn btn-sm btn-outline-primary">Lessons</a>
               </td>
             </tr>
           <?php endforeach; ?>
