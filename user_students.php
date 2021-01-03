@@ -51,6 +51,10 @@ $students = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <a href="create_student.php?id=<?= $id ?>" class="btn btn-success btn-sm">Add Student</a>
         </p>
 
+        <p>
+          <a href="user_lessons.php?id=<?= $id ?>" class="btn btn-success btn-sm">See Lessons</a>
+        </p>
+
         <table class="table">
         <thead>
           <tr>
@@ -77,11 +81,13 @@ $students = $stmt->fetchAll(PDO::FETCH_ASSOC);
               <td><?= $student['phone'] ?></td>
               <td>
               <a href="update_student.php?id=<?= $student['id'] ?>" class="btn btn-sm btn-outline-primary">Edit</a>
+
                 <form class="td-form" action="delete_student.php" method="post">
                   <input type="hidden" name="id" value="<?= $student['id'] ?>" />
                   <input type="hidden" name="user_id" value="<?= $student['user_id'] ?>" />
                   <button class="btn btn-sm btn-outline-danger">Delete Student</button>
                 </form>
+                
               </td>
             </tr>
           <?php endforeach; ?>

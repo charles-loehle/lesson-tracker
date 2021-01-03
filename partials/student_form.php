@@ -9,7 +9,7 @@
 <form action="" method="post">
 
   <div class="form-group">
-    <label for="name">Name</label>
+    <label for="name">Student Name</label>
     <input type="text" name="student_name" value="<?= $student_name ?>">
   </div>
 

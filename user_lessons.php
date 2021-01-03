@@ -9,35 +9,16 @@ if(!$id) {
   exit;
 }
 
-// get all of a user's lessons
-// $stmt = $pdo->prepare(
-//   "SELECT
-//   -- users
-//     name AS teacher_name,
-//   -- students 
-//     students.student_name,
-//     students.instrument,
-//   -- lessons 
-//     lessons.id AS lesson_id,
-//     lessons.lesson_time,
-//     lessons.lesson_date
-//   FROM lessons  
-//   -- join lessons and students  
-//   INNER JOIN students
-//     ON students.user_id = lessons.student_id
-//   -- join users and students 
-//   INNER JOIN users 
-//     ON users.id = lessons.user_id
-//   WHERE lessons.user_id = :id"
-// );
 $stmt = $pdo->prepare(
   "SELECT
   -- users
     name AS teacher_name,
   -- students 
+    students.id as student_id,
     students.student_name,
     students.instrument,
   -- lessons 
+    lessons.attendance,
     lessons.id AS lesson_id,
     lessons.lesson_time,
     lessons.lesson_date
@@ -53,7 +34,7 @@ $stmt->bindValue(':id', $id);
 $stmt->execute();
 $lessons = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// var_dump($lessons); exit;
+// var_dump($lessons[0]['student_id']); exit;
 
 ?>
 
@@ -71,7 +52,7 @@ $lessons = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <?php } ?>  
 
         <p>
-          <a href="create_student.php?id=<?= $id ?>" class="btn btn-success btn-sm">Add Lesson</a>
+          <a href="create_lesson.php?id=<?= $id ?>" class="btn btn-success btn-sm">Add Lesson</a>
         </p>
 
         <table class="table">
@@ -82,6 +63,7 @@ $lessons = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <th>Instrument</th>
             <th>Lesson Time</th>
             <th>Lesson Date</th>
+            <th>Attendance</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -94,13 +76,16 @@ $lessons = $stmt->fetchAll(PDO::FETCH_ASSOC);
               <td><?= $lesson['instrument'] ?></td>
               <td><?= $lesson['lesson_time'] ?></td>
               <td><?= $lesson['lesson_date'] ?></td>
+              <td><?= $lesson['attendance'] ?></td>
               <td>
-              <a href="update_student.php?id=<?= $student['id'] ?>" class="btn btn-sm btn-outline-primary">Edit</a>
-                <form class="td-form" action="delete_student.php" method="post">
-                  <input type="hidden" name="id" value="<?= $student['id'] ?>" />
-                  <input type="hidden" name="user_id" value="<?= $student['user_id'] ?>" />
-                  <button class="btn btn-sm btn-outline-danger">Delete Student</button>
+              <a href="update_lesson.php?id=<?= $lesson['lesson_id'] ?>" class="btn btn-sm btn-outline-primary">Edit</a>
+
+                <form class="td-form" action="delete_lesson.php" method="post">
+                  <input type="hidden" name="lesson_id" value="<?= $lesson['lesson_id'] ?>" />
+                  <input type="hidden" name="user_id" value="<?= $id ?>" />
+                  <button class="btn btn-sm btn-outline-danger">Delete Lesson</button>
                 </form>
+                
               </td>
             </tr>
           <?php endforeach; ?>

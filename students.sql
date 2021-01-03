@@ -56,10 +56,7 @@ CREATE TABLE lessons (
     created_at TIMESTAMP DEFAULT NOW(),
     FOREIGN KEY(student_id) 
         REFERENCES students(id)
-        ON DELETE CASCADE,
-    FOREIGN KEY(user_id) 
-        REFERENCES users(id)
-        ON DELETE CASCADE
+        ON DELETE CASCADE;
 );
 
 INSERT INTO users (username, email) 
@@ -173,11 +170,13 @@ DELETE FROM students WHERE id = :id;
 -- LESSONS ------------------------------------
 
 -- Create lesson
-INSERT INTO lessons (attendance, lesson_time, lesson_date, student_id, user_id) VALUES ('', '12:00:00', '2020-01-02', :student_id, :user_id);
-INSERT INTO lessons (attendance, lesson_time, lesson_date, student_id, user_id) VALUES ('', '12:30:00', '2020-01-02', :student_id, :user_id);
+INSERT INTO lessons (attendance, lesson_time, lesson_date, student_id) VALUES ('', '12:00:00', '2020-01-02', :student_id);
 
 -- Get all lessons
 SELECT * FROM lessons;
+
+-- Get single lesson by lesson id 
+SELECT attendance, lesson_time, lesson_date FROM lessons WHERE lessons.id = :id;
 
 -- Get all of a single user's lessons 
 SELECT * FROM lessons WHERE user_id = :user_id;
@@ -203,43 +202,23 @@ FROM lessons
 INNER JOIN students 
     ON students.
 
-
-
-
 -- Udate lessons
 SELECT * FROM lessons WHERE id = :id;
 UPDATE lessons SET
-          attendance = :attendance,
-          lesson_time = :lesson_time,
-          lesson_date = :lesson_date,
-          user_id = :user_id,
-          WHERE id = :id
+    attendance = :attendance,
+    lesson_time = :lesson_time,
+    lesson_date = :lesson_date,
+WHERE id = :id
+
+UPDATE lessons SET
+    attendance = 'present'
+WHERE id = 8;
 
 -- Delete lesson
-DELETE FROM lessons WHERE id = :id;
+DELETE FROM lessons WHERE id = :lesson_id;
 
 
-* working *
-SELECT
-  -- users
-    name AS teacher_name,
-  -- students 
-    students.student_name,
-    students.instrument,
-  -- lessons 
-    lessons.id AS lesson_id,
-    lessons.lesson_time,
-    lessons.lesson_date
-  FROM lessons  
-  -- join lessons and students  
-  INNER JOIN students
-    ON students.user_id = lessons.student_id
-  -- join users and students 
-  INNER JOIN users 
-    ON users.id = students.user_id
-  WHERE users.id = 6
-
-* working for David Bowie *
+* working for David Bowie and all *
   SELECT
   -- users
     name AS teacher_name,

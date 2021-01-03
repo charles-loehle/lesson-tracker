@@ -56,7 +56,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container">
       <div class="form-container">
         <p>
-          <a href="/Brad_Traversy/php-crash-course-2020-student2/" class="btn btn-secondary">Back to students</a>
+          <a href="/Brad_Traversy/php-crash-course-2020-student2/user_students.php?id=<?= $id ?>" class="btn btn-secondary">Back to students</a>
         </p>
 
         <h1>Create new student for <?= $name ?></h1>
