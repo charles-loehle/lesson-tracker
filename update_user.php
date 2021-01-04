@@ -52,7 +52,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container">
       <div class="form-container">
         <p>
-          <a href="/Brad_Traversy/php-crash-course-2020-student2/" class="btn btn-secondary">Back to users</a>
+          <a href="index.php" class="btn btn-secondary">Back to users</a>
         </p>
 
         <h1>Edit user</h1>

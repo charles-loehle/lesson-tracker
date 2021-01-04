@@ -38,7 +38,7 @@ $students = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="container">
 
         <p>
-          <a href="/Brad_Traversy/php-crash-course-2020-student2/" class="btn btn-secondary">Back to users</a>
+          <a href="index.php" class="btn btn-secondary">Back to users</a>
         </p>
 
         <?php if(!$students) { ?>
