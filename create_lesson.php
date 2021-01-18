@@ -66,7 +66,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container">
       <div class="form-container">
         <p>
-          <a href="/Brad_Traversy/php-crash-course-2020-student2/user_lessons.php?id=<?= $id ?>" class="btn btn-secondary">Back to lessons</a>
+          <a href="user_lessons.php?id=<?= $id ?>" class="btn btn-secondary">Back to lessons</a>
         </p>
 
         <h1>Create new lesson for teacher: <?= $studentsData[0]['teacher_name'] ?></h1>

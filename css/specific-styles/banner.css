@@ -1,0 +1,58 @@
+.banner {
+	text-align: center;
+}
+
+/* small screens body {padding-top: 27px;}
+medium screens body {padding-top: 40px;}
+large screens body {padding-top: 25px;}
+https://musicteachershelper.com/ hero image is 1902 x 800px
+W3 SCHOOLS photographer.jpg is 1500 x 1000
+My images are 1920 x 1280, 1920 x 1275, and 1920 x 2879
+*/
+.banner {
+	height: 467px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-size: cover;
+	/* background-image: url(../../images/violin-with-music.jpg); */
+	/* background-image: url(../../images/photographer.jpg); */
+	/* background-image: url(../../images/acoustic-guitarist-2.jpg); */
+	background-image: url(../../images/acoustic-guitarist.jpg);
+	background-position: center;
+	position: relative;
+	background-repeat: no-repeat;
+	width: 100%;
+}
+
+.banner-items .headline {
+	font-size: 3em;
+}
+
+.banner-items .headline,
+.tagline {
+	color: #fff;
+}
+
+/*button hover effect styles*/
+.banner-items .button {
+	border: none;
+	border-radius: 50px;
+	border: 2px solid #fdcd3b;
+	background-color: transparent;
+	color: #fff;
+	display: block;
+	font-size: 1.4rem;
+	font-weight: 600;
+	margin: auto;
+	margin-top: 31px;
+	transition: color 0.2s 0.3s, background-color 0.3s ease-in-out, width 0.3s 0s;
+	width: 175px;
+}
+
+.banner-items .button:hover {
+	width: 200px;
+	color: #2a3a3f;
+	background-color: #fdcd3b;
+	border: 2px solid #fdcd3b;
+}

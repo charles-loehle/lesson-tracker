@@ -5,7 +5,7 @@ $pdo = require_once 'database.php';
 $id = $_GET['id'] ?? null;
 
 if(!$id) {
-  header('Location: index.php');
+  header('Location: users.php');
   exit;
 }
 
@@ -42,7 +42,7 @@ $lessons = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <section class="main">
     <div class="container">
     <p>
-          <a href="index.php" class="btn btn-secondary">Back to users</a>
+          <a href="users.php" class="btn btn-secondary">Back to users</a>
         </p>
 
         <?php if(!$lessons) { ?>

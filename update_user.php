@@ -5,7 +5,7 @@ $pdo = require_once 'database.php';
 $id = $_GET['id'] ?? null;
 
 if(!$id) {
-  header('Location: index.php');
+  header('Location: users.php');
   exit;
 }
 
@@ -40,7 +40,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $stmt->execute();
 
-    header('Location: index.php');
+    header('Location: users.php');
   }
 }
 
@@ -52,7 +52,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container">
       <div class="form-container">
         <p>
-          <a href="index.php" class="btn btn-secondary">Back to users</a>
+          <a href="users.php" class="btn btn-secondary">Back to users</a>
         </p>
 
         <h1>Edit user</h1>

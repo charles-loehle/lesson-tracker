@@ -1,0 +1,69 @@
+* {
+	box-sizing: border-box;
+}
+
+body,
+html {
+	font-family: 'Roboto', sans-serif;
+	color: #212529;
+}
+
+img,
+embed,
+object,
+video {
+	width: 100%;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+	font-weight: 400;
+}
+h2,
+h3,
+h3 {
+	margin: 0 0 0.8em 0;
+}
+
+section.main {
+	padding-bottom: 55px;
+	padding-top: 25px;
+	height: 100vh;
+}
+
+/* ========================
+  Utilities
+==========================*/
+.container {
+	margin: 0 auto;
+	max-width: 1280px;
+	width: 85%;
+}
+
+.col {
+	margin-right: 1em;
+	margin-left: 1em;
+}
+
+.margin-top-1 {
+	margin-top: 1rem;
+}
+
+.margin-top-2 {
+	margin-top: 2rem;
+}
+
+.center {
+	text-align: center;
+}

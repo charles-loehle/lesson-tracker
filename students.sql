@@ -35,15 +35,12 @@ CREATE TABLE students (
     user_id INTEGER NOT NULL,
     created_at TIMESTAMP DEFAULT NOW(),
     instrument VARCHAR(255),
+    parent_name VARCHAR(100),
+    parent_email VARCHAR(100),
+    phone VARCHAR(100),
     FOREIGN KEY(user_id) 
         REFERENCES users(id)
         ON DELETE CASCADE
-);
-
-ALTER TABLE students INSERT (
-    parent_name VARCHAR(100),
-    parent_email VARCHAR(100),
-    phone VARCHAR(100)
 );
 
 CREATE TABLE lessons (
@@ -51,8 +48,6 @@ CREATE TABLE lessons (
     attendance VARCHAR(255),
     lesson_time TIME NOT NULL,
     lesson_date DATE NOT NULL,
-    student_id INTEGER NOT NULL,
-    user_id INTEGER NOT NULL,
     created_at TIMESTAMP DEFAULT NOW(),
     FOREIGN KEY(student_id) 
         REFERENCES students(id)
@@ -87,11 +82,7 @@ VALUES ('present', '17:30:00', '2020-12-30', 3, 3),
 ('present', '17:30:00', '2020-12-29', 6, 5),
 ('absent', '16:30:00', '2020-12-29', 1, 5);
 
-DELETE FROM users WHERE email = 'george@gmail.com';
 
-DELETE FROM students WHERE student_name = 'Bob Jones';
-
-ALTER TABLE students CHANGE email parent_email VARCHAR(100);
 
 
 /*========== QUERIES==================*/

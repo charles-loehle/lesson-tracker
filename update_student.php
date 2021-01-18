@@ -6,7 +6,7 @@ $id = $_GET['id'] ?? null;
 // var_dump($id); exit;
 
 if(!$id) {
-  header('Location: index.php');
+  header('Location: users.php');
   exit;
 }
 

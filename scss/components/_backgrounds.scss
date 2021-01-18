@@ -1,0 +1,33 @@
+.bg {
+	&-primary {
+		@include set-background($primary-color);
+	}
+
+	&-secondary {
+		@include set-background($secondary-color);
+	}
+
+	.bg-success {
+		background-color: #28a745;
+	}
+
+	.bg-danger {
+		background-color: #dc3545;
+	}
+
+	.bg-warning {
+		background-color: #ffc107;
+	}
+
+	.bg-info {
+		background-color: #17a2b8;
+	}
+
+	&-light {
+		@include set-background($light-color);
+	}
+
+	&-dark {
+		@include set-background($dark-color);
+	}
+}

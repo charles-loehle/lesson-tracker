@@ -1,75 +1,45 @@
-<?php 
-$pdo = require_once 'database.php';
-
-$stmt = $pdo->prepare('SELECT * FROM users ORDER BY username ASC');
-
-$stmt->execute();
-$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-// var_dump(gettype($users)); exit;
-
-session_start();
-
-$success = '';
-
-if (isset($_SESSION['success'])) {
-  $success = $_SESSION['success'];
-  unset($_SESSION['success']);
-}
-
-?>
-
 <?php require_once 'partials/header.php' ?>
-  <section class="main">
-    <div class="container">
-      <h1>Users</h1>
 
-      <p>
-        <a href="create_user.php" class="btn btn-success btn-sm">Add User</a>
-      </p>
-      
-      <?php if($success): ?>
-        <div class="alert alert-success">
-          <div><?= $success ?></div>
+  <header class="header-wrapper">
+    <div class="main-header bg-dark">
+      <div class="name">
+        <a href="#banner"
+          ><img
+            class="header-logo"
+            src="images/cldigitaldesign-logo.png"
+            alt="MUSIC LESSON LOGGER"
+        /></a>
+
+        <div class="hamburger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
         </div>
-      <?php endif; ?>
+      </div>
 
-      <table class="table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>username</th>
-            <th>Email</th>
-            <th>Start Date</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <?php foreach($users as $i => $user): ?>
-            <tr>
-              <th><?= $i + 1 ?></th>
-              <td><?= $user['name'] ?></td>
-              <td><?= $user['username'] ?></td>
-              <td><?= $user['email'] ?></td>
-              <td><?= $user['created_at'] ?></td>
-
-              <td>
-                <a href="update_user.php?id=<?= $user['id'] ?>" class="btn btn-sm btn-outline-primary">Edit</a>
-                <form class="td-form" action="delete_user.php" method="post">
-                  <input type="hidden" name="id" value="<?= $user['id'] ?>" />
-                  <button class="btn btn-sm btn-outline-danger">Delete User</button>
-                </form>
-                <a href="user_students.php?id=<?= $user['id'] ?>" class="btn btn-sm btn-outline-primary">Students</a>
-                <a href="user_lessons.php?id=<?= $user['id'] ?>" class="btn btn-sm btn-outline-primary">Lessons</a>
-              </td>
-            </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
+      <ul class="main-nav">
+        <li><a href="#banner">Home</a></li>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#contact-form">Contact</a></li>
+      </ul>
     </div>
-  </section>
+    <!--/.main-header-->
+  </header>
+
+  <section id="banner">
+			<div class="banner">
+				<div class="banner-items">
+					<h1 class="headline">Music Lesson Logger</h1>
+
+					<span class="tagline">A Web Tool For Music Teachers</span>
+					<a class="button" href="#expertise">tell me more</a>
+				</div>
+			</div>
+			<!--/.banner-->
+		</section>
+		<!--/#banner-->
+
 
 </body>
 </html>

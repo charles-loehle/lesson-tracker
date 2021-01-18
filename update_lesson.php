@@ -7,7 +7,7 @@ $lesson_id = $_GET['id'] ?? null;
 // var_dump($lesson_id); exit;
 
 if(!$lesson_id) {
-  header('Location: index.php');
+  header('Location: users.php');
   exit;
 }
 
@@ -68,7 +68,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container">
       <div class="form-container">
         <p>
-          <a href="/Brad_Traversy/php-crash-course-2020-student2/user_lessons.php?id=<?= $studentData['user_id'] ?>" class="btn btn-secondary">Back to lessons</a>
+          <a href="user_lessons.php?id=<?= $studentData['user_id'] ?>" class="btn btn-secondary">Back to lessons</a>
         </p>
 
         <h1>Update Lesson for student: <?= $studentData['student_name'] ?></h1>
